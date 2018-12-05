@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+<head>
+
+    <script>
+        var myLenguage = "en";
+        var userLang = navigator.language || navigator.userLanguage;
+
+        console.log('Your lenguage: ' + userLang);
+
+        if(userLang.startsWith("es")) {
+            myLenguage = "es";
+        } else if(userLang.startsWith("pt")) {
+            myLenguage = "pt";
+        }
+    </script>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UFT-8">
+    <meta name="robots" content="index,follow">
+    <meta name="google-site-verification" content="Bbnl1RdZT3oYCcKiFQxhA2oaaN20cBbpMHdKKmqvXPo" />
+
+    <link href="https://png.icons8.com/dusk/2x/map.png" rel="shortcut icon" type="image/png" />
+    <title>SEVABIT - Peers Map</title>
+
+    <!-- METADATA -->
+    <meta name="description" content="SevaBit Peers Map">
+    <meta name="author" content="SevaBit - Privacy CryptoCurrency">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta property="og:locale" content="en" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="SevaBit - Privacy CryptoCurrency" />
+    <meta property="og:description" content="SevaBit Peers Map" />
+    <meta property="og:url" content="https://www.sevabit.com/" />
+    <meta property="og:site_name" content="SEVABIT - CryptoCurrency" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:description" content="SevaBit - Peers Map" />
+    <meta name="twitter:title" content="SevaBit - Privacy CryptoCurrency" />
+
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
+    integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
+    crossorigin=""/>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.2.0/dist/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.2.0/dist/MarkerCluster.Default.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/charts.css" type="text/css" media="all"/>
+
+
+    <!-- CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/animate.css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/owl.theme.css" rel="stylesheet" />
+    <link href="css/owl.carousel.css" rel="stylesheet" />
+
+    <!-- Main css -->
+    <link href="css/style.css" rel="stylesheet" /><!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600" rel="stylesheet" />
+
+</head>
+
+
+
+<style>
+body {
+    background-color: #2c2f39;
+    color: white;
+}
+
+text {
+    color: white;
+}
+
+</style>
+
+<body data-offset="50" data-spy="scroll" data-target=".navbar-collapse">
+
+<!-- =========================
+NAVIGATION LINKS     
+============================== -->
+
+<div class="navbar custom-navbar fixed in-view" role="navigation">
+    <div class="container"><!-- navbar header -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="http://www.sevabit.com">
+               <!-- <img alt="Luka isotipo" class="isotipo" src="images/isotipo-luka.svg" />
+                <img alt="Luka logotipo" class="logotipo" src="images/logotipo-luka.svg" />-->
+            </a>
+            <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse"></button>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-collapsible">
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a id="nav1" class="scroll" href="https://www.sevabit.com">HOME</a></li>
+               <!-- <li><a id="nav2" class="scroll" href="https://www.sevabit.com#luka">WHAT IT'S</a></li>
+                <li><a id="nav3" class="scroll" href="https://www.sevabit.com#team">TEAM</a></li>
+                <li><a id="nav4" class="scroll" href="https://www.sevabit.com#wallets">WALLETS</a></li>
+                <li><a id="nav5" class="scroll" href="https://www.sevabit.com#exchanges">EXCHANGES</a></li>
+                <li><a id="nav6" class="scroll" href="https://www.sevabit.com#roadmap">ROADMAP</a></li>
+                <li><a id="nav7" class="scroll" href="https://www.sevabit.com/blog/">NEWS</a></li>
+                <li><a id="nav8" class="scroll" href="https://www.sevabit.com#subscribe">SUSCRIBE</a></li>
+                <li><a id="nav9" class="scroll" href="https://www.sevabit.com#faq">FAQ</a></li>-->
+                <li>
+                    <div class="dropdown">
+                        <a href="#" class=" scroll dropdown-toggle" type="button" id="sitiosInteres" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            INTERESTING LINKS
+                        </a>
+                         <div class="dropdown-menu" aria-labelledby="linkInteres">
+                            <a id="nav11" class="dropdown-item" href="http://pool.sevabit.com" target="_blank">OFFICIAL POOL</a>
+                            <a id="nav12" class="dropdown-item" href="https://explorer.sevabit.com" target="_blank">OFFICIAL EXPLORER</a>
+                            <a id="nav13" class="dropdown-item" href="#">PEERS MAP</a>
+                            <!--<a id="nav14" class="dropdown-item" href="http://wallet.sevabit.com" target="_blank">WEB WALLET</a>
+                                <a class="dropdown-item" href="working.html" target="_blank">PAPER WALLET</a> -->
+                            <!--<a id="nav15" class="dropdown-item" href="http://wallet.sevabit.com/working.html" target="_blank">WIKI SEVABIT</a>--> 
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="active-header"></div>
+
+<!-- =========================
+MAP SECTION   
+============================== -->
+
+<div class="container" style="margin-top: 65px">
+
+    <h2 id="titleMap">LuKa Nodes <p id="peersCount">(0 Peers connected right now)</p> </h2> 
+    <div id="map"></div>
+
+    <h2 id="countryList" style="text-align: center;">Country list</h2>
+
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pull-right">
+        <div id="chart"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pull-left">
+            <table id="country-list" class="table table-hover table-condensed" style="width: auto;">
+                <thead>
+                    <tr>
+                        <th id="tableCountry">Country</th>
+                        <th id="tableNode">Nodes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Service not available</td>
+                        <td style="text-align: right;">0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+
+    </div>
+</div>
+
+
+<!-- =========================
+FOOTER SECTION   
+============================== -->
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <p class="wow fadeInUp" data-wow-delay="0.6s">Copyright &copy; 2018 SevaBit Developers</p>
+
+                <ul class="social-icon">
+                    <li>
+                        <a href="https://www.facebook.com/sevabit/" target="_blank" class="wow fadeInUp" data-wow-delay="0.6s">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/sevabit" target="_blank" class="wow fadeInUp" data-wow-delay="0.7s">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://t.me/sevabit" target="_blank" class="wow fadeInUp" data-wow-delay="0.8s">
+                            <i class="fa fa-send"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+<script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
+integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
+crossorigin=""></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.2.0/dist/leaflet.markercluster.js"></script>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+
+<!-- JAVASCRIPT -->
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.parallax.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/smoothScroll/smoothscroll.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/custom.js"></script>
+
+
+<script>
+
+    /* TEXT VARIABLES */
+    var titleText = "SEVABIT NODES";
+    var peersText = "PEERS CONNECTED AROUND THE WORLD RIGHT NOW";
+    var countryText = "COUNTRY LIST";
+    var tableCountry = "Country";
+    var tableNode = "Nodes";
+
+    var nav1 = "HOME";
+    var nav2 = "WHAT IT'S?";
+    var nav3 = "TEAM";
+    var nav4 = "WALLETS";
+    var nav5 = "EXCHANGES";
+    var nav6 = "ROADMAP";
+    var nav7 = "NEWS";
+    var nav8 = "SUSCRIBE";
+    var nav9 = "FAQ";
+    var nav10 = "INTERESTING LINKS";
+    var nav11 = "OFFICIAL POOL";
+    var nav12 = "OFFICIAL EXPLORER";
+    var nav13 = "PEERS MAP";
+    var nav14 = "WEB WALLET";
+    var nav15 = "WIKI SEVABIT";
+
+
+    /* ALL TRANSLATIONS */
+    switch(myLenguage) {
+        case 'pt':
+        titleText = "SEVABIT NODOS";
+        peersText = "PEERS CONECTADOS AO REDOR DO MUNDO AGORA";
+        countryText = "LISTA DE PAÍS";
+        tableCountry = "País";
+        tableNode = "Nodes";
+        nav1 = "CASA";
+        nav2 = "O QUE É?";
+        nav3 = "EQUIPE";
+        nav4 = "CARTEIROS";
+        nav5 = "EXCHANGES";
+        nav6 = "ROADMAP";
+        nav7 = "NOTÍCIA";
+        nav8 = "SUSCRIBE";
+        nav9 = "FAQ";
+        nav10 = "LINKS INTERESSANTES";
+        nav11 = "POOL OFICIAL";
+        nav12 = "EXPLORER OFICIAL";
+        nav13 = "MAPA DE NODOS";
+        nav14 = "CARTEIRA DA WEB";
+        nav15 = "WIKI SEVABIT";
+        break;
+
+
+        case 'es':
+        titleText = "NODOS DE SEVABIT";
+        peersText = "NODOS CONECTADOS ALREDEDOR DEL MUNDO AHORA MISMO";
+        countryText = "LISTA DE PAÍSES";
+        tableCountry = "País";
+        tableNode = "Nodos";
+        nav1 = "INICIO";
+        nav2 = "¿QUÉ ES?";
+        nav3 = "TEAM";
+        nav4 = "WALLETS";
+        nav5 = "EXCHANGES";
+        nav6 = "ROADMAP";
+        nav7 = "NOTICIAS";
+        nav8 = "SUSCRÍBETE";
+        nav9 = "FAQ";
+        nav10 = "SITIOS DE INTERÉS";
+        nav11 = "POOL OFICIAL";
+        nav12 = "EXPLORER OFICIAL";
+        nav13 = "MAPA DE NODOS";
+        nav14 = "WEB WALLET";
+        nav15 = "WIKI SEVABIT";
+        break;
+        
+        default:
+    }
+
+
+    /* SCRIPTS */
+    const locations = <%- locations %>;
+    console.log(locations.length + " Peers Connected");
+
+    const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 17,
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Points &copy 2012 LINZ'
+    });
+
+    const map = L.map('map', {layers: [tiles]});
+
+    const locationsToCount = {};
+
+    const markers = L.markerClusterGroup();
+    locations.forEach((ip) => {
+        if (locationsToCount[ip.country_name]) {
+            locationsToCount[ip.country_name]++;
+        } else {
+            locationsToCount[ip.country_name] = 1;
+        }
+        markers.addLayer(L.marker([ip.latitude, ip.longitude]));
+    });
+    map.addLayer(markers);
+    map.fitWorld().zoomIn();
+
+    const locationsArray = Object.keys(locationsToCount).map(k => [k, locationsToCount[k]]);
+
+    const renderCountries = () => {
+        locationsArray.sort((a, b) => b[1] - a[1]);
+
+        document
+        .querySelector('#country-list tbody')
+        .innerHTML = locationsArray.reduce((a, v) => a += `<tr>
+            <td>${v[0]}</td>
+            <td style="text-align: right;">${v[1]}</td>
+            </tr>`, '');
+    }
+
+    google.charts.load('current', {'packages': ['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+        const data = google.visualization.arrayToDataTable([['Task', 'Hours per Day']].concat(locationsArray));
+
+        const options = {
+            backgroundColor: '#2c2f39',
+            chartArea: {left: 0, top: 0, width: "100%", height: '60%'},
+            legend: { 
+                position: 'right',
+                textStyle: {
+                    color: 'white',
+                    fontSize: 14
+                },
+                pagingTextStyle: {color: '#fff'},
+                scrollArrows: {
+                    activeColor: '#fff',
+                    inactiveColor:'#fff'
+                }
+            },
+            tooltip: {
+                textStyle: {
+                    color: '#black'
+                },
+                showColorCode: true
+            },
+            is3D: true,
+            pieStartAngle: 0
+        };
+
+        const chart = new google.visualization.PieChart(document.getElementById('chart'));
+        chart.draw(data, options);
+    }
+
+    renderCountries();
+
+    /* SET TEXTS */
+    $('#titleMap').html(titleText + "<p>(" + locations.length + " " + peersText + ")</p>");
+    $('#countryList').text(countryText);
+    $('#tableCountry').text(tableCountry);
+    $('#tableNode').text(tableNode);
+    $('#nav1').text(nav1);
+    /*$('#nav2').text(nav2);
+    $('#nav3').text(nav3);
+    $('#nav4').text(nav4);
+    $('#nav5').text(nav5);
+    $('#nav6').text(nav6);
+    $('#nav7').text(nav7);
+    $('#nav8').text(nav8);
+    $('#nav9').text(nav9);*/
+    $('#sitiosInteres').text(nav10);
+    $('#nav11').text(nav11);
+    $('#nav12').text(nav12);
+    $('#nav13').text(nav13);
+    /*$('#nav14').text(nav14);
+    $('#nav15').text(nav15);*/
+    
+</script>
+</body>
+</html>
+
