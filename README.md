@@ -1,6 +1,6 @@
 # Sevabit nodes map
 
-Visualizes Luka nodes on the map. see the Wiki
+Visualizes Sevabit nodes on the map.
 
 ## How to run
 `npm i`
