@@ -1,4 +1,4 @@
-# Luka nodes map
+# Sevabit nodes map
 
 Visualizes Luka nodes on the map. see the Wiki
 
@@ -8,7 +8,7 @@ Visualizes Luka nodes on the map. see the Wiki
 Set your peerAddress to your Daemon-IP or Hostname in locations.js on Line 8!
 
 `sudo node app.js`
-Open localhost:8083.
+Open localhost:80.
 
 It's caching nodes' ips for 30 days into `.cache` folder.
 
